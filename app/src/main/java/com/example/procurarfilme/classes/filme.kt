@@ -2,5 +2,5 @@ package com.example.procurarfilme.classes
 
 import java.io.Serializable
 
-class filme (var titulo:String, var anoLancamento:Int):Serializable{
+class filme (var original_title:String, var release_date:Int):Serializable{
 }
