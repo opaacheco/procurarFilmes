@@ -2,7 +2,7 @@ package com.example.procurarfilme.apiConsumer
 
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
+import com.example.procurarfilme.classes.MovieResponse
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -12,13 +12,13 @@ class AcharFilme {
 
     val gson = Gson()
 
-    fun garcom() {
+    fun garcom(nomeFilme:String,callback: ApiCallback) {
         // Criação do cliente HTTP
         val client = OkHttpClient()
 
         // Construção da requisição
         val request = Request.Builder()
-            .url("https://api.themoviedb.org/3/search/movie?query=alien&api_key=API_KEY")
+            .url("https://api.themoviedb.org/3/search/movie?query=$nomeFilme&api_key=API_KEY")
             .get()
             .addHeader("accept", "application/json")
             .addHeader(
@@ -32,12 +32,10 @@ class AcharFilme {
             val response = client.newCall(request).execute()
             handler.post {
                 val dataTratado = response.body?.string()
-                //val movieResponse = gson.fromJson(dataTratado, filme::class.java)
-                Log.v("MainActivity", "pedroca = $dataTratado")
-
+                val movieResponse = gson.fromJson(dataTratado, MovieResponse::class.java)
+                val response = movieResponse.results
+                callback.onSuccess(response)
             }
-
         }
-
     }
 }
