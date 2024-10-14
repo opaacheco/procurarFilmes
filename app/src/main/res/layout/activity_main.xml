@@ -10,8 +10,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="@color/cinza_claro">
 
         <EditText
             android:id="@+id/nomeDoFilme"
@@ -19,7 +20,6 @@
             android:layout_height="50sp"
             android:layout_marginTop="14sp"
             android:background="@color/white"
-            android:text="tes"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,11 +38,10 @@
 
     </LinearLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="0sp"
+        android:layout_weight=".8">
         <LinearLayout
             android:id="@+id/listagem"
             android:layout_width="match_parent"
@@ -50,5 +49,20 @@
             android:orientation="vertical">
         </LinearLayout>
     </ScrollView>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/cinza_claro"
+        >
+        <android.widget.Button
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_height="50sp"
+            android:layout_marginTop="14sp"
+            android:background="@color/black"
+            android:gravity="center"
+            android:onClick="pesquisarFilme"
+            android:text="ENVIAR LISTA"
+            android:textColor="@color/beje" />
+    </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
